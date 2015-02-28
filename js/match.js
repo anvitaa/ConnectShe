@@ -13,7 +13,7 @@
         this.distance = 0; 
         this.grad = grad;
         this.school = school; 
-        this.zip_score = 0;
+        this.zip_score = 0; 
     }
 
     //make new mentee
@@ -51,23 +51,31 @@
     
 
     //match mentor and mentee
-    function match(mentee) {
-            //filter by type of interaction they are looking for
-            mentee.mentors = checkInteraction(mentor_list, mentee.interaction); 
-            mentee.mentors = checkInterests(mentor_list, mentee.age_range); 
-            for( var j = 0; j < mentee.mentors.length; j++){
-                var curr_mentor = mentee.mentors[j]
-                curr_mentor.score += checkInterests(mentee, curr_mentor); 
-            } 
-        return mentee.mentors; 
+    function match(ment) {
+        var mentee = ment; 
+        console.log("lkajsdlfkj = " + mentee.first_name); 
+        //filter by type of interaction they are looking for
+        mentee.mentors = checkInteraction(mentor_list, mentee.interaction); 
+        for(var i = 0; i < mentee.mentors.length; i++){
+            if(!checkAge(mentee.mentors[i], mentee.age_range)){
+                mentee.mentors.splice(i,i+1); 
+            }
+        }
+        for( var j = 0; j < mentee.mentors.length; j++){
+            var curr_mentor = mentee.mentors[j]
+            curr_mentor.score += checkInterests(mentee, curr_mentor);
+        } 
+    return mentee.mentors; 
     }
 
     //compares the interest lists of a mentor & mentee and returns a score based on 
     //how much they have in common 
-    function checkInterests(mentor, mentee){
+    function checkInterests(mentee, mentor){
+        console.log("interests = " + mentee.first_name); 
         var mentee_int = mentee.interests;
         var mentor_int = mentor.interests;
         var similar = 0; 
+        console.log("mentee name = " + mentee.first_name);
         for(var i = 0; i < mentee_int.length; i++){
             for(var j = 0; j < mentor_int.length; j++){
                 if(mentee_int[i] === (mentor_int[j])){
@@ -96,13 +104,19 @@
                     new_mentor_list.push(mentor_list[i]); 
                 }
             }
+            if(interact === "In Person"){
+                filter_by_zip(new_mentor_list); 
+            }
         }
-       
+        //check for people close to the mentee --> ANVITA!
+        return new_mentor_list; 
     }
 
     function checkAge(mentor, age){
         var check_mentor = mentor; 
+        console.log("mentor = " + mentor); 
         var age_list = check_mentor.age_range; 
+        console.log("age_list = " + age_list.length);
         for(var i = 0; i < age_list.length; i++){
             if(age_list === age){
                 return true; 
@@ -125,6 +139,8 @@
  
     return qsort(left).concat(pivot, qsort(right));
 }
+
+
   function filter_by_zip (mentor_list) {
         for (var i = 0; i < mentor_list.length; i++) {
             //orders mentors according to how close they are
@@ -136,14 +152,16 @@
             mentor_list[i].score = mentor_list[i].score - mentor_list[i].zip_score;
         }
 }
-
     //returns the mentors with the top 3 scores
-    function getMentors(mentee){
+    function getMentors(ment){
+        mentee = ment;
+        console.log("asf = " + mentee.first_name);
         match(mentee); 
         var mentors = mentee.mentors; 
-        //var max = mentors[0]; 
+        console.log("score = " + mentors[0].score + " name = " + mentors[0].first_name); 
+        recalc_zip_score(mentors); 
+        console.log("recalc = " + mentors[0].score);        
         var good_mentors = [];
-        recalc_zip_score(mentor_list)
         if(mentors.length < 3)
             return mentee.mentors; 
         else{
@@ -159,8 +177,8 @@
 
     var mentee = new Mentee("Jane", "Smith", "jsmith@gmail.com", "135-932-1392", "078", "University",  ["Phone", "In Person"], 
         ["Technology", "Graphics","Engineering"]);
-    matched_mentors = getMentors(mentee); 
-    
+    var matched_mentors = getMentors(mentee); 
+
 
 
 
