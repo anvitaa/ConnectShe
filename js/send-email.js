@@ -62,8 +62,8 @@ function sendTheMail() {
 =======
     displayResults();
     params["message"]["html"] = document.getElementById("EmailContent").innerHTML;
-    user_email = "yyue@wharton.upenn.edu"; //this is the client email
-    params["message"]["to"][0]["email"] = user_email;
+    //this is the client email
+    params["message"]["to"][0]["email"] = email;
 >>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
     m.messages.send(params, function(res) {
         log(res);
