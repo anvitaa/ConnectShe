@@ -141,10 +141,10 @@
 }
 
 
-  function filter_by_zip (mentor_list) {
+   function filter_by_zip (mentor_list, mentee) {
         for (var i = 0; i < mentor_list.length; i++) {
             //orders mentors according to how close they are
-            mentor_list[i].zip_score = abs(zip - (mentor_list[i].zip))  
+            mentor_list[i].zip_score = abs(mentee.zip - (mentor_list[i].zip))  
         }
     }
   function recalc_zip_score(mentor_list) {
