@@ -1,5 +1,5 @@
 //make new mentor    
-    function Mentor(first_name, last_name, e_mail, phone, zip, age_range, interaction, interests, bio, grad, school) {
+    function Mentor(first_name, last_name, e_mail, phone, zip, age_range, interaction, interests, bio, grad, school, zip_score) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.e_mail = e_mail;
@@ -96,8 +96,7 @@
                 }
             }
         }
-        //check for people close to the mentee --> ANVITA!
-        return new_mentor_list; 
+       
     }
 
     function checkAge(mentor, age){
@@ -125,12 +124,25 @@
  
     return qsort(left).concat(pivot, qsort(right));
 }
+  function filter_by_zip (mentor_list) {
+        for (var i = 0; i < mentor_list.length; i++) {
+            //orders mentors according to how close they are
+            mentor_list[i].zip_score = abs(zip - (mentor_list[i].zip))  
+        }
+    }
+  function recalc_zip_score(mentor_list) {
+        for (var i = 0; i < mentor_list.length; i++) {
+            mentor_list[i].score = mentor_list[i].score - mentor_list[i].zip_score;
+        }
+}
+
     //returns the mentors with the top 3 scores
     function getMentors(mentee){
         match(mentee); 
         var mentors = mentee.mentors; 
         //var max = mentors[0]; 
         var good_mentors = [];
+        recalc_zip_score(mentor_list)
         if(mentors.length < 3)
             return mentee.mentors; 
         else{
