@@ -98,20 +98,18 @@
         return new_mentor_list; 
     }
 
-    //order the array of mentors based on their scores
-    function merge(left, right){
-        var result  = [],
-            il      = 0,
-            ir      = 0;
-
-        while (il < left.length && ir < right.length){
-            if (left[il].score > right[ir].score){
-                result.push(left[il++]);
-            } else {
-                result.push(right[ir++]);
-            }
-        }
-    return result.concat(left.slice(il)).concat(right.slice(ir));  
+ function qsort(a) {
+    if (a.length == 0) return [];
+ 
+    var left = [];
+    var right = [];
+    var pivot = a[0];
+ 
+    for (var i = 1; i < a.length; i++) {
+        a[i].score > pivot.score ? left.push(a[i]) : right.push(a[i]);
+    }
+ 
+    return qsort(left).concat(pivot, qsort(right));
 }
 
     //returns the mentors with the top 3 scores
@@ -123,14 +121,12 @@
         if(mentors.length < 3)
             return mentee.mentors; 
         else{
-            var len = mentors.length/2; 
-            var left = mentors.slice(0, len); 
-            var right = mentors.slice(len, mentors.length); 
-            mentors = merge(left,right); 
-        }
-        for(var i = 0; i < 4; i++){
-            good_mentors.push(mentors[i]); 
-            console.log(mentors[i].first_name);
+            mentors = qsort(mentors); 
+
+            for(var i = 0; i < 3; i++){
+                good_mentors.push(mentors[i]); 
+                console.log("name  = " + good_mentors[i].first_name + " score = " + good_mentors[i].score);
+            }
         }
     }
     getMentors(); 
