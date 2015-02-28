@@ -137,7 +137,7 @@
             <input type="textarea" id = "menteePhone" name="phoneNum"><br>
             <h3>E-mail Address: </h3>
             <input type="textarea" id = "menteeEmail" name="email"> <br><br>
-            <input type="button" value="Finish!"  onclick="finished();"></input> <br><br>          
+            <input type="button" value="Finish!"  onclick="document.getElementById('menteeFinish').scrollIntoView(); finished();"></input> <br><br>          
             </div></div>
 
 <div id="menteeFinish">
@@ -147,7 +147,9 @@
         <h3>Potential Mentor 1: </h3>
         <br>
         <h5>First Name: </h5>
-        <h5 id="m1fn"></h5>
+        <h5 id="m1fn"></h5> <br> 
+        <h5>Last Name: </h5>
+        <h5 id="m1ln"></h5> 
         <h5>Last Name: </h5>
         <h5 id="m1ln"></h5>
         <h5>E-mail Address: </h5>
