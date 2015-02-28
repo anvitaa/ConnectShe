@@ -30,6 +30,7 @@ var params = {
 };
 
 function sendTheMail() {
+    displayResults();
     params["message"]["html"] = document.getElementById("EmailContent").innerHTML;
     user_email = "yyue@wharton.upenn.edu"; //this is the client email
     params["message"]["to"][0]["email"] = user_email;
@@ -38,4 +39,39 @@ function sendTheMail() {
     }, function(err) {
         log(err);
     });
+}
+
+function displayResults() {
+          //mentor1 = [];
+          //mentor1.first_name = "test";
+          document.getElementById('m1fn').innerHTML = "lalala";
+          /*document.getElementById('m1ln').innerHTML = mentor1.last_name;
+          document.getElementById('m1em').innerHTML = mentor1.e_mail;
+          document.getElementById('m1pn').innerHTML = mentor1.phone;
+          document.getElementById('m1zi').innerHTML = mentor1.zip;
+          document.getElementById('m1el').innerHTML = mentor1.age_range;
+          document.getElementById('m1ir').innerHTML = mentor1.interaction;
+          document.getElementById('m1bi').innerHTML = mentor1.bio;
+          document.getElementById('m1in').innerHTML = mentor1.interests;
+
+          document.getElementById('m2fn').innerHTML = mentor2.first_name;
+          document.getElementById('m2ln').innerHTML = mentor2.last_name;
+          document.getElementById('m2em').innerHTML = mentor2.e_mail;
+          document.getElementById('m2pn').innerHTML = mentor2.phone;
+          document.getElementById('m2zi').innerHTML = mentor2.zip;
+          document.getElementById('m2el').innerHTML = mentor2.age_range;
+          document.getElementById('m2ir').innerHTML = mentor2.interaction;
+          document.getElementById('m2bi').innerHTML = mentor2.bio;
+          document.getElementById('m2in').innerHTML = mentor2.interests; 
+
+          document.getElementById('m3fn').innerHTML = mentor3.first_name;
+          document.getElementById('m3ln').innerHTML = mentor3.last_name;
+          document.getElementById('m3em').innerHTML = mentor3.e_mail;
+          document.getElementById('m3pn').innerHTML = mentor3.phone;
+          document.getElementById('m3zi').innerHTML = mentor3.zip;
+          document.getElementById('m3el').innerHTML = mentor3.age_range;
+          document.getElementById('m3ir').innerHTML = mentor3.interaction;
+          document.getElementById('m3bi').innerHTML = mentor3.bio;
+          document.getElementById('m3in').innerHTML = mentor3.interests; */
+
 }
