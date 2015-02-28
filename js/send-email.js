@@ -42,10 +42,11 @@ function sendTheMail() {
 }
 
 function displayResults() {
-          //mentor1 = [];
-          //mentor1.first_name = "test";
-          document.getElementById('m1fn').innerHTML = "lalala";
-          /*document.getElementById('m1ln').innerHTML = mentor1.last_name;
+          mentor1 = matched_mentors[0];
+          mentor2 = matched_mentors[1];
+          mentor3 = matched_mentors[2];
+          document.getElementById('m1fn').innerHTML = mentor1.first_name;
+          document.getElementById('m1ln').innerHTML = mentor1.last_name;
           document.getElementById('m1em').innerHTML = mentor1.e_mail;
           document.getElementById('m1pn').innerHTML = mentor1.phone;
           document.getElementById('m1zi').innerHTML = mentor1.zip;
@@ -72,6 +73,6 @@ function displayResults() {
           document.getElementById('m3el').innerHTML = mentor3.age_range;
           document.getElementById('m3ir').innerHTML = mentor3.interaction;
           document.getElementById('m3bi').innerHTML = mentor3.bio;
-          document.getElementById('m3in').innerHTML = mentor3.interests; */
+          document.getElementById('m3in').innerHTML = mentor3.interests; 
 
 }
