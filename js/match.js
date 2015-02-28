@@ -30,31 +30,33 @@
 
     var mentor_list = [];
 
-    var mentee = new Mentee("Jane", "Smith", "jsmith@gmail.com", "135-932-1392", "078", "University",  "Any", 
-        ["Technology", "Graphics","Engineering"]);
     
-    var mentor1 = new Mentor("Anvita", "Achar", "anvitaa@seas.upenn.edu", "923-192-8530", "191", "University", "In Person", 
+    var mentor1 = new Mentor("Anvita", "Achar", "anvitaa@seas.upenn.edu", "923-192-8530", "191", ["High School", "University"], "In Person", 
         ["Engineering", "Graphics", "Technology"], "YAY FOR PROGRAMMING!");
 
     var mentor2 = new Mentor("Natasha", "Narang", "nnarang@seas.upenn.edu", "730-293-5829", 
-        "100", "University", "Any", ["Marketing", "Business", "Graphics"], "I'm super cool! #Bloomberg");
+        "100", "University", ["Phone", "In Person"], ["Marketing", "Business", "Graphics"], "I'm super cool! #Bloomberg");
 
     var mentor3 = new Mentor("Summer", "Yue", "yyue@seas.upenn.edu", "201-293-5984", "191", 
-        "High School", "Phone", ["Graphics", "Marketing", "Technology"], "I like business and food and programming woo");
+        "High School", ["Phone"], ["Graphics", "Marketing", "Technology"], "I like business and food and programming woo");
+
+    var mentor4 = new Mentor("Sammi", "Caby", "scaby@seas.upenn.edu", "973-294-2055", "078", "University", ["In Person"],
+    ["Graphics", "Social Sciences", "Technology"], "#swag"); 
 
     mentor_list.push(mentor1);
     mentor_list.push(mentor2);
     mentor_list.push(mentor3);
+    mentor_list.push(mentor4); 
     
 
     //match mentor and mentee
-    function match() {
+    function match(mentee) {
             //filter by type of interaction they are looking for
-            mentee.mentors = filter(mentor_list, mentee.interaction); 
+            mentee.mentors = checkInteraction(mentor_list, mentee.interaction); 
+            mentee.mentors = checkInterests(mentor_list, mentee.age_range); 
             for( var j = 0; j < mentee.mentors.length; j++){
-                //if the mentor and mentee have less than 2 things in common - remove them from the potential mentor list
                 var curr_mentor = mentee.mentors[j]
-                curr_mentor.score = checkInterests(mentee, curr_mentor); 
+                curr_mentor.score += checkInterests(mentee, curr_mentor); 
             } 
         return mentee.mentors; 
     }
@@ -79,23 +81,35 @@
     }
 
     //returns a list of mentors that are interested in the same type of interaction as the mentee is
-    function filter(mentor_list, inter){
+    function checkInteraction(mentor_list, inter){
         var interact = inter; 
         var new_mentor_list = []; 
-        if(inter === "Any"){
+        if(inter.length > 1){
             new_mentor_list = mentor_list;
         }
         else{
             for(var i = 0; i < mentor_list.length; i++){
                 var curr = mentor_list[i]; 
                 //if its the same or the mentor wants any type of interaction add them to the mentor list
-                if(curr.interaction === (interact) || curr.interaction === "Any"){
+                if(curr.interaction[0] === (interact) || curr.interaction[0] === "Any"){
                     new_mentor_list.push(mentor_list[i]); 
                 }
             }
         }
         //check for people close to the mentee --> ANVITA!
         return new_mentor_list; 
+    }
+
+    function checkAge(mentor, age){
+        var check_mentor = mentor; 
+        var age_list = check_mentor.age_range; 
+        for(var i = 0; i < age_list.length; i++){
+            if(age_list === age){
+                return true; 
+            }
+        }
+        return false; 
+
     }
 
  function qsort(a) {
@@ -111,10 +125,9 @@
  
     return qsort(left).concat(pivot, qsort(right));
 }
-
     //returns the mentors with the top 3 scores
-    function getMentors(){
-        match(); 
+    function getMentors(mentee){
+        match(mentee); 
         var mentors = mentee.mentors; 
         //var max = mentors[0]; 
         var good_mentors = [];
@@ -128,8 +141,13 @@
                 console.log("name  = " + good_mentors[i].first_name + " score = " + good_mentors[i].score);
             }
         }
+        return good_mentors; 
     }
-    getMentors(); 
+
+    var mentee = new Mentee("Jane", "Smith", "jsmith@gmail.com", "135-932-1392", "078", "University",  ["Phone", "In Person"], 
+        ["Technology", "Graphics","Engineering"]);
+    matched_mentors = getMentors(mentee); 
+    
 
 
 
