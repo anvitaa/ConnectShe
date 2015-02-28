@@ -1,5 +1,5 @@
 //make new mentor    
-    function Mentor(first_name, last_name, e_mail, phone, zip, age_range, interaction, interests, bio, grad, school, zip_score) {
+    function Mentor(first_name, last_name, e_mail, phone, zip, age_range, interaction, interests, bio, grad, school) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.e_mail = e_mail;
@@ -13,6 +13,7 @@
         this.distance = 0; 
         this.grad = grad;
         this.school = school; 
+        this.zip_score = 0;
     }
 
     //make new mentee
