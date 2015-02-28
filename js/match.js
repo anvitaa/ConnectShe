@@ -36,7 +36,7 @@
         ["Engineering", "Graphics", "Technology"], "YAY FOR PROGRAMMING!");
 
     var mentor2 = new Mentor("Natasha", "Narang", "nnarang@seas.upenn.edu", "730-293-5829", 
-        "100", ["University"], ["Phone", "In Person"], ["Marketing", "Business", "Graphics"], "I'm super cool! #Bloomberg");
+        "100", ["University"], ["Phone", "In Person"], ["Technology", "Business", "Graphics"], "I'm super cool! #Bloomberg");
 
     var mentor3 = new Mentor("Summer", "Yue", "yyue@seas.upenn.edu", "201-293-5984", "191", 
         ["University","High School"], ["Phone"], ["Graphics", "Marketing", "Technology"], "I like business and food and programming woo");
@@ -116,7 +116,7 @@
         var check_mentor = mentor; 
         var age_list = check_mentor.age_range; 
         for(var i = 0; i < age_list.length; i++){
-            if(age_list === age){
+            if(age_list[i] === age){
                 return true; 
             }
         }
@@ -126,7 +126,7 @@
 
  function qsort(a) {
     if (a.length == 0) return [];
- 
+
     var left = [];
     var right = [];
     var pivot = a[0];
@@ -134,7 +134,6 @@
     for (var i = 1; i < a.length; i++) {
         a[i].score > pivot.score ? left.push(a[i]) : right.push(a[i]);
     }
- 
     return qsort(left).concat(pivot, qsort(right));
 }
 
@@ -142,7 +141,10 @@
    function filter_by_zip (mentor_list, mentee) {
         for (var i = 0; i < mentor_list.length; i++) {
             //orders mentors according to how close they are
-            mentor_list[i].zip_score = Math.abs(mentee.zip - (mentor_list[i].zip))  
+            if (Math.abs(mentee.zip - (mentor_list[i].zip)) >= 0 && Math.abs(mentee.zip - (mentor_list[i].zip)) <= 20)
+                {mentor_list[i].zip_score = + 150} else  
+            {mentor_list[i].zip_score = Math.abs(mentee.zip - (mentor_list[i].zip));} 
+
         }
     }
   function recalc_zip_score(mentor_list) {
@@ -155,23 +157,16 @@
         mentee = ment;
         match(mentee); 
         var mentors = mentee.mentors; 
-        for(var i = 0; i < mentors.length )
-
-        recalc_zip_score(mentors); 
-        //console.log("recalc = " + mentors[0].score);        
+        recalc_zip_score(mentors);
         var good_mentors = [];
         if(mentors.length < 3)
             good_mentors = mentee.mentors; 
         else{
             mentors = qsort(mentors); 
-            console.log("ha");
             for(var i = 0; i < 3; i++){
                 good_mentors.push(mentors[i]); 
             }
-        }
-        for(var i = 0; i < good_mentors.length; i++){
-            console.log("name = " + good_mentors[i].first_name + " score = " + good_mentors[i].score);
-        }
+        } 
         return good_mentors; 
     }
 
