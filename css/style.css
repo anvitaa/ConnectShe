@@ -544,7 +544,7 @@
 	input[type="reset"],
 	input[type="button"]{
         border: 5px;
-        background: white;
+        background: #ffc0cb;
         padding: 0
     },
 	.button {
@@ -579,7 +579,8 @@
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			background: #ffc0cb;
+            color: white;
+			background: #4e2e28;
 		}
 
 		input[type="submit"]:active,
@@ -826,11 +827,32 @@
 			margin: 0.25em 0 0 0;
 		}
 
+
+#mentorQuestions {
+    background-color: #ffc0cb;
+    background-repeat: repeat-x;
+    margin-top: 200px;
+    position: relative;
+    text-align: center;
+}
+
+#menteeQuestions {
+    background-color: #ffc0cb;
+    background-repeat: repeat-x;
+    margin-top: 200px;
+    position: relative;
+    text-align: center;
+}
+
+#question {
+    margin-top: 500px;
+    margin-bottom: 500px;
+}
 /* Footer */
 
 	#footer {
 		background-attachment: scroll;
-		background-color: #4eb980;
+		background-color: #4e2e28;
 		background-image: url("images/bottom-3200.svg");
 		background-position: top center;
 		background-repeat: repeat-x;
@@ -841,7 +863,7 @@
 		add additional top padding (to move our content out of its way)
 		and a negative margin (to move everything up a bit).
 		*/
-		margin-top: -260px;
+		margin-top: 150px;
 		padding: calc(460px + 6em) 0 10em 0;
 		position: relative;
 		text-align: center;
@@ -1060,6 +1082,9 @@
    width: 268px;
 }
 
+.centerButton {
+    text-align: center;
+}
 /* -------------------- Rounded Corners */
 .rounded {
    -webkit-border-radius: 20px;
@@ -1067,6 +1092,12 @@
    border-radius: 20px;
 }
 
+.finish {
+    color: #ffc0cb;
+    background-color:#4e2e28;
+    background-image: url(http://i208.photobucket.com/albums/bb256/pinkwillfeelmywrath/Peach_Damask_Flock_Wallpaper_by_angeldust.jpg);
+    font-size: "25px";
+}
 .semi-square {
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
