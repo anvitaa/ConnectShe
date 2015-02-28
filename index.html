@@ -34,10 +34,11 @@
 		<!-- Header -->
 			<div id="header">
 				<h1 id="appTitle">Welcome to <br> ConnectShe.</h1>
-				<br />
+				<br/>
 				<p> An effortless way to reach out and connect to other women in STEM based on your similar interests. <br/></p>
 			</div>
         <br>
+        <div class="questions">
         <h2> ConnectShe is the easy-to-use platform that allows you to build lasting, meaningful connections with other women in STEM fields. To get started, click on one of the buttons below:</h2>
         <div class="centerButton">
         <input type="button" value="I'm interested in becoming a mentor!" onclick="document.getElementById('mentorWelcome').scrollIntoView()"></input><br><br>
@@ -58,7 +59,7 @@
                 <h2>Welcome to ConnectShe! We're so glad you decided to connect as a mentee!</h2>
                 <h3>Start by filling out this quick form, which we'll use to match you up with your perfect mentor out of the thousands in our database. </h3> <br> <h4>Here's to lasting and meaningful connections.</h4><br>
                 </div>
-                            <img src="images/coffee.png" alt="Coffee Mug">
+                            <img src="coffee.png" alt="Coffee Mug">
                             <input type="button" value="Let's Get Started!" onclick="document.getElementById('menteeQuestions').scrollIntoView()"></input>
 						</form>
 					</div>
@@ -66,77 +67,148 @@
 				</div>
         <div id="menteeQuestions">
             <form>
-                 <div id="question1">
+                 <div id="menteeQuestion1">
                     <div class="question">
                         <br><br><br>
                         <h2>What's your first name?</h2>
                         <br><br>
-                        <input type="text" name="firstName">
+                        <input type="textarea" id = "menteeFirstName" name="firstName">
                         <br><br><br><br><br><br>
                         <h2>What's your last name?</h2>
-                        <input id = "lastNameKey" type="text" name="lastName"> 
+                        <input id = "menteeLastName" type="textarea" name="lastName"> 
                         <br><br>
-                        <input type="button" value="Continue!"  onclick="document.getElementById('mentorQuestion2').scrollIntoView()"></input>
+                        <input type="button" value="Continue!"  onclick="document.getElementById('menteeQuestion2').scrollIntoView()"></input>
                     <br><br><br><br><br><br><br><br>
                     </div>
                 </div>               
-            <div id="question2">
+            <div id="menteeQuestion2">
                 <div class="question">
                 <h2>What's your education level?</h2>
-                <input type="radio" name="hs" value="hs">High School<br>
-                <input type="radio" name="cf" value="cf">College Freshman<br>
-                <input type="radio" name="csoph" value="csoph">College Sophomore<br>
-                <input type="radio" name="cj" value="cj">College Junior<br>
-                <input type="radio" name="csenior" value="csenior">College Senior<br>
-                <input type="radio" name="gs" value="gs">Graduate Student<br>
-                <input type="radio" name="gd" value="gd">College Graduate/In The Workplace<br>
-                <input type="radio" name="o" value="o">Other<br>
+                <input type="radio" name="hs" value="hs" id="hs">High School<br>
+                <input type="radio" name="cf" value="cf" id="cf">College Freshman<br>
+                <input type="radio" name="csoph" value="csoph" id="csoph">College Sophomore<br>
+                <input type="radio" name="cj" value="cj" id="cj">College Junior<br>
+                <input type="radio" name="csenior" value="csenior" id="csenior">College Senior<br>
+                <input type="radio" name="gs" value="gs" id="gs">Graduate Student<br>
+                <input type="radio" name="gd" value="gd" id="gd">College Graduate/In The Workplace<br>
+                <input type="radio" name="o" value="o" id="o">Other<br>
                     <br>
             </div>
         </div>
 
-            <div id="question3">
+            <div id="menteeQuestion3">
                 <div class="question">
                 <h2>What kind of interaction are you looking for with your mentor? 
                 <br> Please select all that apply!</h2>
-                <input type="checkbox" name="phone" value="Phone">Over The Phone <br>
-                <input type="checkbox" name="person" value="Person">In Person <br>
-                <input type="checkbox" name="vid" value="vid">Skype/Videocalling <br>
-                <input type="checkbox" name="email" value="email">Through E-mail <br>
+                <input type="checkbox" name="phone" value="Phone" id="phoneInteraction">Over The Phone <br>
+                <input type="checkbox" name="person" value="Person" id="personInteraction">In Person-Please Enter Your Zipcode
+                    <input type="textarea" name="zip" id = "menteeZip" value="0"><br>
+                <input type="checkbox" name="vid" value="vid" id="vidInteraction">Skype/Videocalling <br>
+                <input type="checkbox" name="email" value="email" id="emailInteraction">Through E-mail <br>
                 <br>   
-                <input type="button" value="Continue!"  onclick="document.getElementById('question4').scrollIntoView()"></input> <br><br>
+                <input type="button" value="Continue!"  onclick="document.getElementById('menteeQuestion4').scrollIntoView()"></input> <br><br>
             </div>
         </div> 
-        <div id="question4">
+        <div id="menteeQuestion4">
         <div class="question">
             <h2>What are some of your professional interests?
-            <br> Please select all that apply! </h2>
-            <input type="checkbox" name="business" value="business">Business<br>
-            <input type="checkbox" name="technology" value="technology">Technology<br>
-            <input type="checkbox" name="engineering" value="engineering">Engineering<br>
-            <input type="checkbox" name="education" value="education">Education<br>
-            <input type="checkbox" name="law" value="law">Law<br>
-            <input type="checkbox" name="graphics_design" value="graphics_design">Graphics & Design<br>
-            <input type="checkbox" name="chemistry" value="chemistry">Chemistry<br>
-            <input type="checkbox" name="physics" value="physics">Physics<br>
-            <input type="checkbox" name="social_sciences" value="social_sciences">Social Sciences<br>
-            <input type="checkbox" name="economics" value="economics">Economics<br>
-            <input type="checkbox" name="media_communications" value="media_communications">Media & Communications<br>
-            <input type="checkbox" name="other" value="other">Other <br><br>
+            <br> Please select your top three only! </h2>
+            <input type="checkbox" name="business" value="business" id="bus">Business<br>
+            <input type="checkbox" name="technology" value="technology" id="tech">Technology<br>
+            <input type="checkbox" name="engineering" value="engineering" id="eng">Engineering<br>
+            <input type="checkbox" name="education" value="education" id="ed">Education<br>
+            <input type="checkbox" name="law" value="law" id="law">Law<br>
+            <input type="checkbox" name="graphics_design" value="graphics_design" id="gd">Graphics & Design<br>
+            <input type="checkbox" name="chemistry" value="chemistry" id="chem">Chemistry<br>
+            <input type="checkbox" name="physics" value="physics" id="phys">Physics<br>
+            <input type="checkbox" name="social_sciences" value="social_sciences" id="ss">Social Sciences<br>
+            <input type="checkbox" name="economics" value="economics" id="econ">Economics<br>
+            <input type="checkbox" name="media_communications" value="media_communications" id="mc">Media & Communications<br>
+            <input type="checkbox" name="other" value="other" id="o">Other <br><br>
             <h1>If you chose "Other," please specify below:</h1>
-            <input type="textarea" name="otherField">
+            <input type="textarea" name="otherField" id="oField">
             <br>
-                <input type="button" value="Continue!"  onclick="document.getElementById('question5').scrollIntoView()"></input>  
+                <input type="button" value="Continue!"  onclick="document.getElementById('menteeQuestion5').scrollIntoView()"></input>  
             <br><br><br>
             </div></div>
-        <div id="question5"><div class="question">
+        <div id="menteeQuestion5"><div class="question">
             <h2>How can your mentor get in touch with you? </h2> <br> <h4>(We will not give your contact information to any third party sites. It will only be used for us to connect you with your potential mentors.)</h4>
             <h3>Phone Number: </h3>
-            <input type="textarea" name="phoneNum"><br>
+            <input type="textarea" id = "menteePhone" name="phoneNum"><br>
             <h3>E-mail Address: </h3>
-            <input type="textarea" name="email"> <br><br>
-            <input type="button" value="Finish!"  onclick="document.getElementById('finish').scrollIntoView()"></input> <br><br>          
+            <input type="textarea" id = "menteeEmail" name="email"> <br><br>
+            <input type="button" value="Finish!"  onclick="finished();"></input> <br><br>          
             </div></div>
+
+<div id="menteeFinish">
+    <div class="finish">
+        <br><br><br>
+        <h2>Congratulations! We've found a few choice mentors that we think would be perfect for you, based on your answers to the survey! You can find their information below: </h2>
+        <h3>Potential Mentor 1: </h3>
+        <br>
+        <h5>First Name: </h5>
+        <h5 id="m1fn"></h5>
+        <h5>Last Name: </h5>
+        <h5 id="m1ln"></h5>
+        <h5>E-mail Address: </h5>
+        <h5 id="m1em"></h5>
+        <h5>Phone Number: </h5>
+        <h5 id="m1pn"></h5>
+        <h5>Zip Code: </h5>
+        <h5 id="m1pn"></h5>
+        <h5>Education Level: </h5>
+        <h5 id="m1zi"></h5>
+        <h5>Type of Interaction: </h5>
+        <h5 id="m1ir"></h5>
+        <h5>Short Biography: </h5>
+        <h5 id="m1bi"></h5>
+        <h5>Interests: </h5>
+        <h5 id="m1in"></h5>
+        
+        <h3>Potential Mentor 2: </h3>
+        <br>
+        <h5>First Name: </h5>
+        <h5 id="m2fn"></h5>
+        <h5>Last Name: </h5>
+        <h5 id="m2ln"></h5>
+        <h5>E-mail Address: </h5>
+        <h5 id="m2em"></h5>
+        <h5>Phone Number: </h5>
+        <h5 id="m2pn"></h5>
+        <h5>Zip Code: </h5>
+        <h5 id="m2pn"></h5>
+        <h5>Education Level: </h5>
+        <h5 id="m2zi"></h5>
+        <h5>Type of Interaction: </h5>
+        <h5 id="m2ir"></h5>
+        <h5>Short Biography: </h5>
+        <h5 id="m2bi"></h5>
+        <h5>Interests: </h5>
+        <h5 id="m2in"></h5>
+        
+                <h3>Potential Mentor 3: </h3>
+        <br>
+        <h5>First Name: </h5>
+        <h5 id="m3fn"></h5>
+        <h5>Last Name: </h5>
+        <h5 id="m3ln"></h5>
+        <h5>E-mail Address: </h5>
+        <h5 id="m3em"></h5>
+        <h5>Phone Number: </h5>
+        <h5 id="m3pn"></h5>
+        <h5>Zip Code: </h5>
+        <h5 id="m3pn"></h5>
+        <h5>Education Level: </h5>
+        <h5 id="m3zi"></h5>
+        <h5>Type of Interaction: </h5>
+        <h5 id="m3ir"></h5>
+        <h5>Short Biography: </h5>
+        <h5 id="m3bi"></h5>
+        <h5>Interests: </h5>
+        <h5 id="m3in"></h5>
+        <button id="myEmail" onclick="sendTheMail(); return false;">Send me their info!</button><br><br><br>
+    </div>
+</div>
             </form>
     </div>
 <form>
@@ -144,7 +216,7 @@
                 <h2>Welcome to ConnectShe! We're so glad you decided to connect as a mentor!</h2>
                 <h3>Start by filling out this quick form, which we'll use to match you up with your perfect mentee out of the thousands in our database. Thank you so much for volunteering your time! </h3> <br> <h4>Here's to lasting and meaningful connections.</h4><br>
             <div class="centerButton">
-                <img src="../images/coffee.png" alt="Coffee Mug"><br>
+                <img src="coffee.png" alt="Coffee Mug"><br>
             <input type="button" value="Let's Get Started!" onclick="document.getElementById('mentorQuestions').scrollIntoView()" style="margin: 0 auto; text-align: center;"></input></div>
                 </div>
 </form>
@@ -155,10 +227,10 @@
                         <br>
                         <h2>What's your first name?</h2>
                         <br>
-                        <input type="text" name="firstName">
+                        <input type="textarea" name="firstName">
                         <br>
                         <h2>What's your last name?</h2>
-                        <input id = "lastNameKey" type="text" name="lastName"> 
+                        <input id = "lastNameKey" type="textarea" name="lastName"> 
                         <br>
                         <h2>What university did you go to/are currently attending?</h2>
                         <input type = "textarea" name="uni">
@@ -184,23 +256,24 @@
                     <br>
             </div>
         </div>
-
+          <input type="button" value="Continue!"  onclick="document.getElementById('mentorQuestion3').scrollIntoView()"></input>               
             <div id="mentorQuestion3">
                 <div class="question">
                 <h2>What kind of interaction are you looking for with your mentee? 
                 <br> Please select all that apply!</h2>
                 <input type="checkbox" name="phone" value="Phone">Over The Phone <br>
-                <input type="checkbox" name="person" value="Person">In Person <br>
+                <input type="checkbox" name="person" value="Person">In Person-Please Enter Your Zipcode 
+                    <input type="textarea" name="zip" value=""><br>
                 <input type="checkbox" name="vid" value="vid">Skype/Videocalling <br>
                 <input type="checkbox" name="email" value="email">Through E-mail <br>
-                <br>   
+                <br> 
                 <input type="button" value="Continue!"  onclick="document.getElementById('mentorQuestion4').scrollIntoView()"></input> <br><br>
             </div>
         </div> 
         <div id="mentorQuestion4">
         <div class="question">
             <h2>What kind of career are you involved in/have you been involved with in the past?
-            <br> Please select all that apply! </h2>
+            <br> Please select your top three only! </h2>
             <input type="checkbox" name="business" value="business">Business<br>
             <input type="checkbox" name="technology" value="technology">Technology<br>
             <input type="checkbox" name="engineering" value="engineering">Engineering<br>
@@ -221,7 +294,7 @@
             </div></div>
     <div id="mentorQuestion5"><div class="question">
         <h2>Please write a short biography of yourself (150 words or less). We'll be sharing it with your mentee once you've been matched. <br> Feel free to mention facts about yourself that you may not have been able to convey in the questions above.</h2>
-        <textarea style="background-color: white;" name="bio" rows="6" cols="50"></textarea> <br><br>
+        <textarea style="background-color: white;" name="bio" value="Start Typing here..." rows="4" cols="20"></textarea> <br><br>
             <input type="button" value="Continue!"   onclick="document.getElementById('mentorQuestion6').scrollIntoView()"></input> <br><br><br><br>
         </div></div>
         <div id="mentorQuestion6"><div class="question">
@@ -230,7 +303,7 @@
             <input type="textarea" name="phoneNum"><br>
             <h3>E-mail Address: </h3>
             <input type="textarea" name="email"> <br><br>
-            <input type="button" name="finish" value="Finish!"  onclick="document.getElementById('mentorFinish').scrollIntoView()"></input> <br><br><br><br>         
+            <input type="button" name="finish" value="Finish!"  onclick="document.getElementById('mentorFinish').scrollIntoView(); finished();"></input> <br><br><br><br>         
             </div></div>
 
 <div id="mentorFinish">
@@ -252,10 +325,309 @@
 				</div>
 			</div>
 
-	<!-- Parser: Facebook events -->
-	<script src="js/facebookparser.js" type="text/javascript"></script>
-		
-	<!-- CUSTOM DOCUMENT FUNCTIONS - DO NOT EDIT/CHANGE/LOOK AT -->
-	<script src="js/custom-functions.js" type="text/javascript"></script>
+ 
+<script type="text/javascript">
+    var menteeFirstName;
+    var menteeLastName;
+    var menteeEmail;
+    var menteePhone;
+    var menteeZip;
+    var menteeEducation;
+    var menteeInteractions;
+    var menteeInterests = [];
+    var first_name;
+    var last_name;
+    var e_mail;
+    var phone;
+    var zip;
+    var age_range;
+    var interaction;
+    var interests;
+    var mentors=[];
+
+    function finished() {  
+        menteeFirstName = $('#menteeFirstName').val();
+        menteeLastName = $('#menteeLastName').val();
+        menteeEmail = $('#menteeEmail').val();
+        menteePhone = $('#menteePhone').val();
+        menteeZip = $('#menteeZip').val();
+        if (document.getElementById('hs').checked) {
+            menteeEducation = "High School";
+        }
+        else if (document.getElementById('cf').checked || document.getElementById('csoph').checked || document.getElementById('cj').checked || document.getElementById('csenior').checked) {
+            menteeEducation = "University";
+        }
+        else {
+            menteeEducation = "Graduated";
+        }
+        if (document.getElementById('personInteraction').checked) {
+            menteeInteractions = "In Person";
+        } else {
+            menteeInteractions = "Phone";
+        } if (document.getElementById('bus').checked) {
+            menteeInterests.push("Business");
+        } if (document.getElementById('tech').checked) {
+            menteeInterests.push("Technology");
+        } if (document.getElementById('eng').checked) {
+            menteeInterests.push("Engineering");            
+        } if (document.getElementById('ed').checked) {
+            menteeInterests.push("Education");        
+        } if (document.getElementById('law').checked) {
+            menteeInterests.push("Law");        
+         } if (document.getElementById('gd').checked) {
+            menteeInterests.push("Graphics & Design");       
+         } if (document.getElementById('chem').checked) {
+            menteeInterests.push("Chemistry");   
+        } if (document.getElementById('phys').checked) {
+            menteeInterests.push("Physics");
+         } if (document.getElementById('ss').checked) {
+            menteeInterests.push("Social Sciences");
+        } if (document.getElementById('econ').checked) {
+            menteeInterests.push("Economics");  
+        } if (document.getElementById('mc').checked) {
+            menteeInterests.push("Media & Communications");
+         } if (document.getElementById('o').checked) {
+            menteeInterests.push($('oField').val());   
+         }
+        var m = new Mentee(menteeFirstName, menteeLastName, menteeEmail, menteePhone, menteeZip, menteeEducation, menteeInteractions, menteeInterests);
+        console.log(getMentors(m));
+        getMentors(m);
+        displayResults();
+    }
+    
+        function Mentor(first_name, last_name, e_mail, phone, zip, age_range, interaction, interests, bio, grad, school) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.e_mail = e_mail;
+        this.phone = phone;
+        this.zip = (zip.charAt(0).concat(zip.charAt(1))).concat(zip.charAt(2));
+        this.age_range = age_range;
+        this.interaction = interaction;
+        this.interests = interests; 
+        this.bio = bio;
+        this.score = 0; 
+        this.distance = 0; 
+        this.grad = grad;
+        this.school = school; 
+        this.zip_score = 0; 
+    }
+
+    //make new mentee
+    function Mentee(first_name, last_name, e_mail, phone, zip, age_range, interaction, interests) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.e_mail = e_mail;
+        this.phone = phone;
+        this.zip = zip;
+        this.age_range = age_range;
+        this.interaction = interaction;
+        this.interests = interests;
+        this.mentors = [];  
+    }
+
+    var mentor_list = [];
+
+    
+    var mentor1 = new Mentor("Anvita", "Achar", "anvitaa@seas.upenn.edu", "923-192-8530", "191", ["High School", "University"], "In Person", 
+        ["Engineering", "Graphics", "Technology"], "YAY FOR PROGRAMMING!");
+
+    var mentor2 = new Mentor("Natasha", "Narang", "nnarang@seas.upenn.edu", "730-293-5829", 
+        "100", ["University"], ["Phone", "In Person"], ["Technology", "Business", "Graphics"], "I'm super cool! #Bloomberg");
+
+    var mentor3 = new Mentor("Summer", "Yue", "yyue@seas.upenn.edu", "201-293-5984", "191", 
+        ["University","High School"], ["Phone"], ["Graphics", "Marketing", "Technology"], "I like business and food and programming woo");
+
+    var mentor4 = new Mentor("Sammi", "Caby", "scaby@seas.upenn.edu", "973-294-2055", "078", ["University"], ["In Person"],
+    ["Graphics", "Social Sciences", "Technology"], "#swag"); 
+
+    var mentor7 = new Mentor("Valerie", "Rad", "valsd@seas.upenn.edu", "923-238-9888", "179", ["High School", "University"], ["In Person", "Phone"],
+        ["Big Data", "Business", "Law"], "SKJHFLAKHG FOR PROGRAMMING!");
+var mentor8 = new Mentor("Dina", "Anid", "dinaanid@seas.upenn.edu", "183-238-9888", "191", ["University"], ["Phone"],
+        ["Marketing", "Social Sciences", "Design"], "FEMMEHAX ROX");
+var mentor9 = new Mentor("Allie", "Brown", "ali@seas.upenn.edu", "183-238-2847", "213", ["University"], ["In Person"],
+        ["Graphics", "Technology", "Engineering"], "u ROX");
+    
+        var mentor5 = new Mentor("Lisamarie", "Brassini", "lcaby@gmail.com", "290-283-2636", "219", ["Graduate", "High School"], 
+        ["In Person", "Phone"], ["Law", "Technology", "Biology"], "I'm the best!");
+
+    var mentor6 = new Mentor("Lucy", "Johnson", "ljohnson@gmail.com", "289-875-3810", "120", ["Graduate", "University"], ["In Person"], 
+    ["Engineering", "Business", "Social Sciences"], "Let's learn about cool STEM stuff yeah!"); 
+    
+    var mentor10 = new Mentor("Jill", "Jackson", "jjack23@gmail.com", "203-284-6942", "148", ["University"], ["In Person", "Phone"], 
+        ["Technology", "Marketing", "Physics"], "I like physics!"); 
+    
+    mentor_list.push(mentor1);
+    mentor_list.push(mentor2);
+    mentor_list.push(mentor3);
+    mentor_list.push(mentor4); 
+    mentor_list.push(mentor7);
+    mentor_list.push(mentor8);
+    mentor_list.push(mentor9);
+    mentor_list.push(mentor6);
+    mentor_list.push(mentor5);
+    mentor_list.push(mentor4);
+    
+
+    //match mentor and mentee
+    function match(ment) {
+        var mentee = ment; 
+        //filter by type of interaction they are looking for
+        mentee.mentors = checkInteraction(mentor_list, mentee.interaction, mentee); 
+        for(var i = 0; i < mentee.mentors.length; i++){
+            if(!checkAge(mentee.mentors[i], mentee.age_range)){
+                mentee.mentors.splice(i,i+1); 
+            }
+        }
+        for( var j = 0; j < mentee.mentors.length; j++){
+            var curr_mentor = mentee.mentors[j]
+            curr_mentor.score += checkInterests(mentee, curr_mentor);
+        } 
+    return mentee.mentors; 
+    }
+
+    //compares the interest lists of a mentor & mentee and returns a score based on 
+    //how much they have in common 
+    function checkInterests(mentee, mentor){
+        var mentee_int = mentee.interests;
+        var mentor_int = mentor.interests;
+        var similar = 0; 
+        for(var i = 0; i < mentee_int.length; i++){
+            for(var j = 0; j < mentor_int.length; j++){
+                if(mentee_int[i] === (mentor_int[j])){
+                   similar++; 
+                }
+            }   
+        }
+        if(similar === 0) return 1; 
+        else if(similar === 1) return 10; 
+        else if(similar === 2) return 20;
+        else return 30; 
+    }
+
+    //returns a list of mentors that are interested in the same type of interaction as the mentee is
+    function checkInteraction(mentor_list, inter, ment){
+        var mentee = ment; 
+        var interact = inter; 
+        var new_mentor_list = []; 
+        if(inter.length > 1){
+            new_mentor_list = mentor_list;
+            filter_by_zip(new_mentor_list, mentee); 
+        }
+        else{
+            for(var i = 0; i < mentor_list.length; i++){
+
+                var curr = mentor_list[i]; 
+                //if its the same or the mentor wants any type of interaction add them to the mentor list
+                if(curr.interaction[0] === (interact) || mentor_list[i].interaction.length > 1){
+                    new_mentor_list.push(mentor_list[i]); 
+                }
+            }
+            if(interact === "In Person"){
+                filter_by_zip(new_mentor_list, mentee); 
+            }
+        }
+        //check for people close to the mentee --> ANVITA!
+        return new_mentor_list; 
+    }
+
+    function checkAge(mentor, age){
+        var check_mentor = mentor; 
+        var age_list = check_mentor.age_range; 
+        for(var i = 0; i < age_list.length; i++){
+            if(age_list[i] === age){
+                return true; 
+            }
+        }
+        return false; 
+
+    }
+
+ function qsort(a) {
+    if (a.length == 0) return [];
+
+    var left = [];
+    var right = [];
+    var pivot = a[0];
+ 
+    for (var i = 1; i < a.length; i++) {
+        a[i].score > pivot.score ? left.push(a[i]) : right.push(a[i]);
+    }
+    return qsort(left).concat(pivot, qsort(right));
+}
+
+
+   function filter_by_zip (mentor_list, mentee) {
+        for (var i = 0; i < mentor_list.length; i++) {
+            //orders mentors according to how close they are
+            if (Math.abs(mentee.zip - (mentor_list[i].zip)) >= 0 && Math.abs(mentee.zip - (mentor_list[i].zip)) <= 20)
+                {mentor_list[i].zip_score = + 150} else  
+            {mentor_list[i].zip_score = Math.abs(mentee.zip - (mentor_list[i].zip));} 
+
+        }
+    }
+  function recalc_zip_score(mentor_list) {
+        for (var i = 0; i < mentor_list.length; i++) {
+            mentor_list[i].score = Math.abs(mentor_list[i].score - mentor_list[i].zip_score);
+        }
+}
+    //returns the mentors with the top 3 scores
+    function getMentors(ment){
+        mentee = ment;
+        match(mentee); 
+        var mentors = mentee.mentors; 
+        recalc_zip_score(mentors);
+        var good_mentors = [];
+        if(mentors.length < 3)
+            good_mentors = mentee.mentors; 
+        else{
+            mentors = qsort(mentors); 
+            for(var i = 0; i < 3; i++){
+                good_mentors.push(mentors[i]); 
+            }
+        } 
+        return good_mentors; 
+    }
+
+    var mentee = new Mentee("Jane", "Smith", "jsmith@gmail.com", "135-932-1392", "078", "University",  ["Phone", "In Person"], 
+        ["Technology", "Graphics","Engineering"]);
+    var matched_mentors = getMentors(mentee); 
+    
+function displayResults() {
+          mentor1 = matched_mentors[0];
+          mentor2 = matched_mentors[1];
+          mentor3 = matched_mentors[2];
+          document.getElementById('m1fn').innerHTML = mentor1.first_name;
+          document.getElementById('m1ln').innerHTML = mentor1.last_name;
+          document.getElementById('m1em').innerHTML = mentor1.e_mail;
+          document.getElementById('m1pn').innerHTML = mentor1.phone;
+          document.getElementById('m1zi').innerHTML = mentor1.zip;
+          document.getElementById('m1el').innerHTML = mentor1.age_range;
+          document.getElementById('m1ir').innerHTML = mentor1.interaction;
+          document.getElementById('m1bi').innerHTML = mentor1.bio;
+          document.getElementById('m1in').innerHTML = mentor1.interests;
+
+          document.getElementById('m2fn').innerHTML = mentor2.first_name;
+          document.getElementById('m2ln').innerHTML = mentor2.last_name;
+          document.getElementById('m2em').innerHTML = mentor2.e_mail;
+          document.getElementById('m2pn').innerHTML = mentor2.phone;
+          document.getElementById('m2zi').innerHTML = mentor2.zip;
+          document.getElementById('m2el').innerHTML = mentor2.age_range;
+          document.getElementById('m2ir').innerHTML = mentor2.interaction;
+          document.getElementById('m2bi').innerHTML = mentor2.bio;
+          document.getElementById('m2in').innerHTML = mentor2.interests; 
+
+          document.getElementById('m3fn').innerHTML = mentor3.first_name;
+          document.getElementById('m3ln').innerHTML = mentor3.last_name;
+          document.getElementById('m3em').innerHTML = mentor3.e_mail;
+          document.getElementById('m3pn').innerHTML = mentor3.phone;
+          document.getElementById('m3zi').innerHTML = mentor3.zip;
+          document.getElementById('m3el').innerHTML = mentor3.age_range;
+          document.getElementById('m3ir').innerHTML = mentor3.interaction;
+          document.getElementById('m3bi').innerHTML = mentor3.bio;
+          document.getElementById('m3in').innerHTML = mentor3.interests; 
+
+}    
+    
+</script>
 	</body>
 </html>
