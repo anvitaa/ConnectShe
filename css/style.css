@@ -1095,7 +1095,7 @@
 .finish {
     color: #ffc0cb;
     background-color:#4e2e28;
-    background-image: url(http://i208.photobucket.com/albums/bb256/pinkwillfeelmywrath/Peach_Damask_Flock_Wallpaper_by_angeldust.jpg);
+    background-image:  url("images/overlay.png");
     font-size: "25px";
 }
 .semi-square {
