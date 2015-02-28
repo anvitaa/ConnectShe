@@ -544,11 +544,7 @@
 	input[type="reset"],
 	input[type="button"]{
         border: 5px;
-<<<<<<< HEAD
-        background: white;
-=======
         background: #ffc0cb;
->>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
         padding: 0
     },
 	.button {
@@ -583,12 +579,8 @@
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-<<<<<<< HEAD
-			background: #ffc0cb;
-=======
             color: white;
 			background: #4e2e28;
->>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
 		}
 
 		input[type="submit"]:active,
@@ -835,8 +827,6 @@
 			margin: 0.25em 0 0 0;
 		}
 
-<<<<<<< HEAD
-=======
 
 #mentorQuestions {
     background-color: #ffc0cb;
@@ -858,16 +848,11 @@
     margin-top: 500px;
     margin-bottom: 500px;
 }
->>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
 /* Footer */
 
 	#footer {
 		background-attachment: scroll;
-<<<<<<< HEAD
-		background-color: #4eb980;
-=======
 		background-color: #4e2e28;
->>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
 		background-image: url("images/bottom-3200.svg");
 		background-position: top center;
 		background-repeat: repeat-x;
@@ -878,11 +863,7 @@
 		add additional top padding (to move our content out of its way)
 		and a negative margin (to move everything up a bit).
 		*/
-<<<<<<< HEAD
-		margin-top: -260px;
-=======
 		margin-top: 150px;
->>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
 		padding: calc(460px + 6em) 0 10em 0;
 		position: relative;
 		text-align: center;
@@ -1101,12 +1082,9 @@
    width: 268px;
 }
 
-<<<<<<< HEAD
-=======
 .centerButton {
     text-align: center;
 }
->>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
 /* -------------------- Rounded Corners */
 .rounded {
    -webkit-border-radius: 20px;
@@ -1114,15 +1092,12 @@
    border-radius: 20px;
 }
 
-<<<<<<< HEAD
-=======
 .finish {
     color: #ffc0cb;
     background-color:#4e2e28;
     background-image:  url("images/overlay.png");
     font-size: "25px";
 }
->>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
 .semi-square {
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
@@ -1975,8 +1950,4 @@ width:100%;
 .gallery ul li:nth-child(4),.gallery ul li:nth-child(4)
 {
 	margin-right: 0px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b6f49a2ca6ac8c6c2f85d2dcd5e9ddfa5d5ec816
