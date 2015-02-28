@@ -34,10 +34,10 @@
         ["Technology", "Graphics","Engineering"]);
     
     var mentor1 = new Mentor("Anvita", "Achar", "anvitaa@seas.upenn.edu", "923-192-8530", "191", "University", "In Person", 
-        ["Business", "Graphics", "Technology"], "YAY FOR PROGRAMMING!");
+        ["Engineering", "Graphics", "Technology"], "YAY FOR PROGRAMMING!");
 
     var mentor2 = new Mentor("Natasha", "Narang", "nnarang@seas.upenn.edu", "730-293-5829", 
-        "100", "University", "Any", ["Engineering", "Business", "Graphics"], "I'm super cool! #Bloomberg");
+        "100", "University", "Any", ["Marketing", "Business", "Graphics"], "I'm super cool! #Bloomberg");
 
     var mentor3 = new Mentor("Summer", "Yue", "yyue@seas.upenn.edu", "201-293-5984", "191", 
         "High School", "Phone", ["Graphics", "Marketing", "Technology"], "I like business and food and programming woo");
@@ -50,16 +50,11 @@
     //match mentor and mentee
     function match() {
             //filter by type of interaction they are looking for
-            console.log("checking for matches"); 
             mentee.mentors = filter(mentor_list, mentee.interaction); 
-            for(var i = 0; i < mentee.mentors.length; i++)
-                console.log("i = " + i + " mentor = " + mentee.mentors[i].first_name);
-
             for( var j = 0; j < mentee.mentors.length; j++){
                 //if the mentor and mentee have less than 2 things in common - remove them from the potential mentor list
                 var curr_mentor = mentee.mentors[j]
                 curr_mentor.score = checkInterests(mentee, curr_mentor); 
-                console.log("mentor = " + curr_mentor.first_name + " score = " + curr_mentor.score); 
             } 
         return mentee.mentors; 
     }
@@ -67,7 +62,6 @@
     //compares the interest lists of a mentor & mentee and returns a score based on 
     //how much they have in common 
     function checkInterests(mentor, mentee){
-        console.log("checking interests!"); 
         var mentee_int = mentee.interests;
         var mentor_int = mentor.interests;
         var similar = 0; 
@@ -88,12 +82,16 @@
     function filter(mentor_list, inter){
         var interact = inter; 
         var new_mentor_list = []; 
-        for(var i = 0; i < mentor_list.length; i++){
-            console.log("inter = " + interact); 
-            //if its the same or the mentor wants any type of interaction add them to the mentor list
-            if(mentor_list[i].interaction === (interact) || mentor_list[i].interaction === "Any"){
-                console.log("add " + mentor_list[i].first_name); 
-                new_mentor_list.push(mentor_list[i]); 
+        if(inter === "Any"){
+            new_mentor_list = mentor_list;
+        }
+        else{
+            for(var i = 0; i < mentor_list.length; i++){
+                var curr = mentor_list[i]; 
+                //if its the same or the mentor wants any type of interaction add them to the mentor list
+                if(curr.interaction === (interact) || curr.interaction === "Any"){
+                    new_mentor_list.push(mentor_list[i]); 
+                }
             }
         }
         //check for people close to the mentee --> ANVITA!
@@ -107,7 +105,7 @@
             ir      = 0;
 
         while (il < left.length && ir < right.length){
-            if (left[il].score < right[ir].score){
+            if (left[il].score > right[ir].score){
                 result.push(left[il++]);
             } else {
                 result.push(right[ir++]);
@@ -127,12 +125,12 @@
         else{
             var len = mentors.length/2; 
             var left = mentors.slice(0, len); 
-            var right = mentors.slice(len + 1, mentors.length); 
+            var right = mentors.slice(len, mentors.length); 
             mentors = merge(left,right); 
         }
         for(var i = 0; i < 4; i++){
             good_mentors.push(mentors[i]); 
-            console.log(mentors[i]);
+            console.log(mentors[i].first_name);
         }
     }
     getMentors(); 
