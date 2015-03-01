@@ -157,9 +157,9 @@
         <h5>Phone Number: </h5>
         <h5 id="m1pn"></h5>
         <h5>Zip Code: </h5>
-        <h5 id="m1pn"></h5>
-        <h5>Education Level: </h5>
         <h5 id="m1zi"></h5>
+        <h5>Education Level: </h5>
+        <h5 id="m1el"></h5>
         <h5>Type of Interaction: </h5>
         <h5 id="m1ir"></h5>
         <h5>Short Biography: </h5>
@@ -178,9 +178,9 @@
         <h5>Phone Number: </h5>
         <h5 id="m2pn"></h5>
         <h5>Zip Code: </h5>
-        <h5 id="m2pn"></h5>
-        <h5>Education Level: </h5>
         <h5 id="m2zi"></h5>
+        <h5>Education Level: </h5>
+        <h5 id="m2el"></h5>
         <h5>Type of Interaction: </h5>
         <h5 id="m2ir"></h5>
         <h5>Short Biography: </h5>
@@ -188,7 +188,7 @@
         <h5>Interests: </h5>
         <h5 id="m2in"></h5>
         
-                <h3>Potential Mentor 3: </h3>
+        <h3>Potential Mentor 3: </h3>
         <br>
         <h5>First Name: </h5>
         <h5 id="m3fn"></h5>
@@ -199,9 +199,9 @@
         <h5>Phone Number: </h5>
         <h5 id="m3pn"></h5>
         <h5>Zip Code: </h5>
-        <h5 id="m3pn"></h5>
-        <h5>Education Level: </h5>
         <h5 id="m3zi"></h5>
+        <h5>Education Level: </h5>
+        <h5 id="m3el"></h5>
         <h5>Type of Interaction: </h5>
         <h5 id="m3ir"></h5>
         <h5>Short Biography: </h5>
@@ -596,8 +596,12 @@ var mentor9 = new Mentor("Allie", "Brown", "ali@seas.upenn.edu", "183-238-2847",
     
 function displayResults() {
           mentor1 = matched_mentors[0];
+    console.log(mentor1);
           mentor2 = matched_mentors[1];
+    console.log(mentor2);
+    
           mentor3 = matched_mentors[2];
+    console.log(mentor3);
           document.getElementById('m1fn').innerHTML = mentor1.first_name;
           document.getElementById('m1ln').innerHTML = mentor1.last_name;
           document.getElementById('m1em').innerHTML = mentor1.e_mail;
